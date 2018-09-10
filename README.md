@@ -44,7 +44,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 ## Part III: Applications
 
 ### 7.   Structural Engineering (LEME and LAC)   
-7.1. Testing models and structural Components   
+7.1. Testing models and structural components   
 7.2. Aerodynamic analysis for Civil Engineering   
 
 ### 8.   Geotechnical Engineering (LEGG)   
