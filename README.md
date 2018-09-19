@@ -13,8 +13,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 1.3. Change of units and change of scales   
 1.4. Reduced scale models   
 
-### 2.  [Statistics and probabilities]
-(https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
+### 2.  [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
 2.1. Random variables and probability distributions   
 2.2. Statistical moments and estimatores   
 2.3. Statistical dependence and correlation   
