@@ -24,7 +24,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ### 3.   Analog signals processing   
 3.1. Random processes and Fourier analysis   
-3.2. The MRPy Python class
+3.2. The MRPy Python class   
 3.3. Autocorrelations and spectral densities   
 3.4. Signal to noise ratio and signal filtering   
 
