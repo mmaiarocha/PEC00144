@@ -13,7 +13,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 1.3. Change of units and change of scales   
 1.4. Reduced scale models   
 
-### 2.   Statistics and probabilities   
+### 2.  [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
 2.1. Random variables and probability distributions   
 2.2. Statistical moments and estimatores   
 2.3. Statistical dependence and correlation   
@@ -24,8 +24,9 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ### 3.   Analog signals processing   
 3.1. Random processes and Fourier analysis   
-3.2. Autocorrelations and spectral densities   
-3.3. Signal to noise ratio and signal filtering   
+3.2. The MRPy Python class   
+3.3. Autocorrelations and spectral densities   
+3.4. Signal to noise ratio and signal filtering   
 
 ### 4.   Transducers and signal conditioning   
 4.1. Voltage dividers and impedance   
