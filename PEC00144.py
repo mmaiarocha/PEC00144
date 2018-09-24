@@ -21,7 +21,7 @@ par_dict = {'length':  ( 1.0,  0.0,  0.0),   # length, displacement
             'speed':   ( 1.0,  0.0, -1.0),   # velocity, speed
             'accel':   ( 1.0,  0.0, -2.0),   # acceleration, gravity
             'omega':   ( 0.0,  0.0,  1.0),   # angular velocity or...
-            'freq':    ( 0.0,  0.0,  1.0),   # ... frequency
+            'freq':    ( 0.0,  0.0, -1.0),   # ... frequency
             'alpha':   ( 0.0,  0.0, -2.0),   # angular acceleration
             'force':   ( 1.0,  1.0, -2.0),   # force
             'moment':  ( 2.0,  1.0, -2.0),   # moment or...
@@ -42,8 +42,20 @@ for ID, exponent in par_dict.items():
     ID_list.append(ID)
     dim_mat = np.append(dim_mat, list(exponent))
     
-dim_mat = dim_mat.reshape(Npar,3)
+dim_mat = dim_mat.reshape(Npar,3).T
 
+#=============================================================================
+
+def get_mat(param=('length','mass','time')):
+
+    n = len(param)
+    M = np.zeros((3,n))
+    
+    for k in range(n):
+        M[:,k] = dim_mat[:, ID_list.index(param[k])]
+    
+    return M
+    
 #=============================================================================
 
 def dim_base(base=('length','mass','time')):
@@ -61,12 +73,14 @@ def new_scale(ID, base=('length','mass','time'), scale=(1.,1.,1.)):
 
     DB   = dim_base(base)
     IDB  = np.linalg.inv(DB)
-    new  = np.dot(IDB.T, dim_mat.T).T   
-    par  = new[ID_list.index(ID),:]
+    new  = np.dot(IDB.T, dim_mat)
+    par  = new[:, ID_list.index(ID)]
     
     NS  = 1.
     for k in range(3):
         NS *= scale[k]**par[k]
     
     return NS
+    
+#=============================================================================
 
