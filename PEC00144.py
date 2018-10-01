@@ -26,7 +26,8 @@ par_dict = {'length':  ( 1.0,  0.0,  0.0),   # length, displacement
             'force':   ( 1.0,  1.0, -2.0),   # force
             'moment':  ( 2.0,  1.0, -2.0),   # moment or...
             'energy':  ( 2.0,  1.0, -2.0),   # ... energy
-            'stiff':   ( 0.0,  1.0, -2.0),   # spring or axial stiffness
+            'stiff':   ( 0.0,  1.0, -2.0),   # spring or axial stiffness or...
+            'load_L':  ( 0.0,  1.0, -2.0),   # ... load per unit length
             'stress':  (-1.0,  1.0, -2.0),   # pressure, stress
             'EI':      ( 3.0,  1.0, -2.0),   # bending stiffness
             'nu_dyn':  (-1.0,  1.0, -1.0),   # dynamic viscosity
