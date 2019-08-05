@@ -1,53 +1,103 @@
-#  PEC00144
-## Experimental Methods in Civil Engineering
+#  PEC00144 - Experimental Methods in Civil Engineering
 
 _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
-## Part I: Analysis
+###  1. (23/09) Introduction to the discipline
 
-### Intro: GitHub, Python, and Jupyter Notebooks
+* [GitHub tutorial](https://guides.github.com/activities/hello-world/)
+* [Markdown tutorial](https://www.markdowntutorial.com/)
+* [Markdown quick reference](https://en.support.wordpress.com/markdown-quick-reference/)
+* [Jupyter Notebooks tutorial](https://www.dataquest.io/blog/jupyter-notebook-tutorial/)
+* [Brief introduction to LaTeX equations](https://www.latex-tutorial.com/tutorials/amsmath/) 
+* [Reference for math symbols in LaTeX](https://www.latex-tutorial.com/symbols/math-symbols/)
+* [Online notebooks compiler (NBViewer)](https://nbviewer.jupyter.org/)
 
-### 1.  [Dimensional analysis and similarity](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Dimensional_Analysis.ipynb)
-1.1. Quantities, units, dimensions   
-1.2. The Theorem of Pi's by Vaschy-Buckinghan   
-1.3. Change of units and change of scales   
-1.4. Reduced scale models   
+---
 
-### 2.  [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
-2.1. Random variables and probability distributions   
-2.2. Statistical moments and estimatores   
-2.3. Statistical dependence and correlation   
-2.4. Functions of RV's and error propagation   
-2.5. Extreme values distributions   
+## Part I: Dimensional and statistical analysis
+
+###  2. (25/09) [Dimensional analysis and similarity](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Dimensional_Analysis.ipynb)
+2.1. Quantities, units, dimensions   
+2.2. The Theorem of Pi's by Vaschy-Buckinghan   
+2.3. Change of units and change of scales   
+
+###  3. (30/09) Design of reduced scale models
+3.1.
+3.2.
+3.3. Example of application: aeroelastic model of a slender tower   
+
+###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
+4.1. Random variables and probability distributions   
+4.2. Statistical moments and estimators   
+4.3. Statistical dependence and correlation   
+
+###  5. (07/10) Functions of RV's and error propagation
+5.1. Linear models and linearization techniques   
+5.2. Non-linear models and Monte Carlo analysis   
+
+###  6. (09/10) Distribuition of extreme values  
+6.1. 
+6.2.
+6.3. Example of application: extreme wind speeds   
+
+###  7. (21/10) First test (P1) 
+
+---
 
 ## Part II: Instrumentation
 
-### 3.   Analog signals processing   
-3.1. Random processes and Fourier analysis   
-3.2. The MRPy Python class   
-3.3. Autocorrelations and spectral densities   
-3.4. Signal to noise ratio and signal filtering   
+###  8. (23/10) Analog signals processing   
+8.1. Random processes and Fourier analysis   
+8.2. Autocorrelations and spectral densities   
+8.3. Signal to noise ratio and signal filtering   
 
-### 4.   Transducers and signal conditioning   
-4.1. Voltage dividers and impedance   
-4.2. Power sources and signal amplifiers   
-4.3. Passive and active electronic filtering   
-4.4. Acelerometers, geophones and LVDT's   
-4.5. Strain gages and Wheatstone bridges   
-4.6. Pressure sensors   
+###  9. (28/10) The MRPy Python class   
+9.1. Brief Python review
+9.2. MRPy class applications
 
-### 5.   Data acquisition systems   
-5.1. Voltmeters and oscilloscopes   
-5.2. Analog to digital conversion   
-5.3. Configuring a data acquisition   
-5.4. Arduino and Raspberry Pi   
+### 10. (30/10) Review on electrical circuits  
+10.1. Voltage dividers and impedance   
+10.2. Power sources
+10.3  Signal amplifiers   
 
-## Part III: Applications
+### 11. (04/11) Signal conditioning 
+11.1. Passive and active electronic filtering   
 
-### 6.   Structural Engineering (LEME and LAC)   
+### 12. (06/11) Transducers overview
+12.1. Acelerometers, geophones and LVDT's   
+12.2. Strain gages and Wheatstone bridges   
+12.3. Pressure sensors   
+
+### 13. (11/11) Data acquisition 
+13.1. Voltmeters and oscilloscopes   
+13.2. Analog to digital conversion   
+13.3. Configuring a data acquisition  
+
+### 14. (13/11) Cost effective devices   
+14.1. Arduino   
+14.2. Raspberry Pi   
+14.3. Serial, I2C and SPI communication   
+
+### 15. (18/11) Second test (P2)   
+
+---
+
+## Part III: Case studies and applications
+
+### 16. (20/11) 
+
+### 20. Structural Engineering (LEME and LAC)   
 6.1. Testing models and structural components   
 6.2. Aerodynamic analysis for Civil Engineering   
 
-### 7.   Geotechnical Engineering (LEGG)   
+### 21. Geotechnical Engineering (LEGG)   
 7.1. Laboratory tests for soil mechanics   
 7.2. Field tests   
+
+### 22. ( /12) Third test (P3) 
+
+### 23. ( /12) Retake tests
+
+---
+
+
