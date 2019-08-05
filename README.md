@@ -22,8 +22,8 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 2.3. Change of units and change of scales   
 
 ###  3. (30/09) Design of reduced scale models
-3.1.
-3.2.
+3.1.   
+3.2.   
 3.3. Example of application: aeroelastic model of a slender tower   
 
 ###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/1_Statistical_Analysis.ipynb)
@@ -36,8 +36,8 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 5.2. Non-linear models and Monte Carlo analysis   
 
 ###  6. (09/10) Distribuition of extreme values  
-6.1. 
-6.2.
+6.1.    
+6.2.   
 6.3. Example of application: extreme wind speeds   
 
 ###  7. (21/10) First test (P1) 
@@ -57,11 +57,12 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ### 10. (30/10) Review on electrical circuits  
 10.1. Voltage dividers and impedance   
-10.2. Power sources
-10.3  Signal amplifiers   
+10.2. Regulated voltage and current sources   
+10.3. Practical issues on building power sources
 
 ### 11. (04/11) Signal conditioning 
 11.1. Passive and active electronic filtering   
+11.2. Voltage and charge amplifiers   
 
 ### 12. (06/11) Transducers overview
 12.1. Acelerometers, geophones and LVDT's   
@@ -84,19 +85,24 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ## Part III: Case studies and applications
 
-### 16. (20/11) 
+### 16. (20/11) To be defined
 
-### 20. Structural Engineering (LEME and LAC)   
-6.1. Testing models and structural components   
-6.2. Aerodynamic analysis for Civil Engineering   
+### 17. (25/11) To be defined
 
-### 21. Geotechnical Engineering (LEGG)   
-7.1. Laboratory tests for soil mechanics   
-7.2. Field tests   
+### 18. (27/11) To be defined
 
-### 22. ( /12) Third test (P3) 
+### 19. (02/12) Lab visiting: LEME
+19.1. Testing models and structural components  
 
-### 23. ( /12) Retake tests
+### 20. (04/12) Lab visiting: LAC   
+20.1. Aerodynamic analysis for Civil Engineering   
+
+### 21. (09/12) Lab visiting LEGG  
+21.1. Laboratory tests for soil mechanics   
+
+### 22. (11/12) Third test (P3) 
+
+### 23. (16/12) Retake tests
 
 ---
 
