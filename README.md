@@ -68,12 +68,12 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 10.3. Instrumentation amplifiers
 
 ### 11. (06/11) Strain gages and Wheatstone bridges
-11.1. Strain gages
+11.1. Strain gages   
 11.2. Wheatstone bridges  
-11.3. Designing a load cell
+11.3. Designing a load cell   
 
 ### 12. (11/11) Other transducers
-12.1. Acelerometers and geophones
+12.1. Acelerometers and geophones   
 12.2. LVDT's and Hall sensors   
 12.3. Pressure sensors   
 
@@ -86,6 +86,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 14.1. Arduino   
 14.2. Raspberry Pi   
 14.3. Serial, I2C and SPI communication   
+14.4. Available sensors
 
 ### 15. (20/11) Second test (P2)   
 
