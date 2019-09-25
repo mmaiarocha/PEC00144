@@ -18,18 +18,17 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ###  2. (25/09) [Dimensional analysis and similarity](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/2_Dimensional_analysis.ipynb)
 
-2. Dimensional analysis and similarity
-2.1. Quantities, units, dimensions
-2.2. Dataframe for scales computation
-2.3. The Theorem of Pi's by Vaschy-Buckinghan
-2.4. Change of units and change of scales
-2.5. Famous Pi-Numbers
+2.1. Quantities, units, dimensions   
+2.2. Dataframe for scales computation   
+2.3. The Theorem of Pi's by Vaschy-Buckinghan   
+2.4. Change of units and change of scales   
+2.5. Famous Pi-Numbers   
 
 ###  3. (30/09) [Design of reduced scale models](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/3_Reduced_scale.ipynb)
-3.1. Controlled and derived scales
-3.2. Example: elastic beam under self weight
-3.3. Example: aeroelastic model of a slender tower
-3.4. Example: cable catenary
+3.1. Controlled and derived scales   
+3.2. Example: elastic beam under self weight   
+3.3. Example: aeroelastic model of a slender tower   
+3.4. Example: cable catenary   
 
 ###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/4_Probabilities.ipynb)
 4.1. Random variables and probability distributions   
@@ -42,9 +41,9 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 5.3. Examples of application   
 
 ###  6. (09/10) [Distribuition of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb)   
-6.1. Probability distribution of maxima and minima
-6.2. Assimptotic distributions
-6.3. Example of application: extreme wind speeds   
+6.1. Probability distribution of maxima and minima   
+6.2. Assimptotic distributions   
+6.3. Example of application: extreme wind speeds    
 
 ###  7. (21/10) First test (P1) 
 
@@ -53,7 +52,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 ## Part II: Instrumentation
 
 ###  8. (23/10) Analog signals processing   
-8.1. MRPy class applications
+8.1. MRPy class applications   
 8.2. Random processes and Fourier analysis   
 8.3. Autocorrelations and spectral densities   
 8.4. Signal to noise ratio and signal filtering   
