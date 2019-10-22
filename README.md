@@ -51,8 +51,8 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 ###  6. (09/10) [Distributions of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb)   
 6.1. Statistics of extreme values   
 6.2. Assimptotic distributions   
-6.3. Application: the $S_3$ factor in NBR6123   
-6.4. Characteristic velocity $V_k$ from data   
+6.3. Application: the S<sub>3</sub> factor in NBR6123   
+6.4. Characteristic wind velocity V<sub>k</sub> from data   
 
 ###  7. (21/10) First test (P1) 
 
