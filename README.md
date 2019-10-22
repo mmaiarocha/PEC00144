@@ -21,29 +21,38 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 2.1. Quantities, units, dimensions   
 2.2. Dataframe for scales computation   
 2.3. The Theorem of Pi's by Vaschy-Buckinghan   
-2.4. Change of units and change of scales   
-2.5. Famous Pi-Numbers   
+2.4. Change of base units   
+2.5. Change of units is like change of scale   
+2.6. Famous Pi-Numbers   
 
 ###  3. (30/09) [Design of reduced scale models](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/3_Reduced_scale.ipynb)
 3.1. Controlled and derived scales   
 3.2. Example: elastic beam under self weight   
-3.3. Example: aeroelastic model of a slender tower   
-3.4. Example: cable catenary   
+3.3. Example: cable catenary   
+3.4. Example: aeroelastic model of a slender tower   
 
 ###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/4_Probabilities.ipynb)
 4.1. Random variables and probability distributions   
 4.2. Statistical moments and estimators   
-4.3. Statistical dependence and correlation   
+4.3. The uniform distribution   
+4.4. The gaussian distribution   
+4.5. Statistical cross moments   
+4.6. The Gaussian multivariate distribution   
+4.7. Simulation of correlated normal RV's   
 
 ###  5. (07/10) [Functions of RV's and error propagation](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/5_Error_propagation.ipynb)
-5.1. Linear models and linearization techniques   
-5.2. Non-linear models and Monte Carlo analysis   
-5.3. Examples of application   
+5.1. Types of error in mathematical models   
+5.2. Monotonic functions of a single RV   
+5.3. Linear models of correlated RV vectors   
+5.4. Example: Bernoulli process and random walk   
+5.5. Model linearization at mean value   
+5.6. Arbitrary models and Monte Carlo analysis   
 
 ###  6. (09/10) [Distribuition of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb)   
-6.1. Probability distribution of maxima and minima   
+6.1. Statistics of extreme values   
 6.2. Assimptotic distributions   
-6.3. Example of application: extreme wind speeds    
+6.3. Application: the $S_3$ factor in NBR6123   
+6.4. Characteristic velocity $V_k$ from data   
 
 ###  7. (21/10) First test (P1) 
 
