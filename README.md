@@ -48,7 +48,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 5.5. Model linearization at mean value   
 5.6. Arbitrary models and Monte Carlo analysis   
 
-###  6. (09/10) [Distribuition of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb)   
+###  6. (09/10) [Distributions of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb)   
 6.1. Statistics of extreme values   
 6.2. Assimptotic distributions   
 6.3. Application: the $S_3$ factor in NBR6123   
