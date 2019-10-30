@@ -510,13 +510,7 @@ class MRPy(np.ndarray):
         Parameters:  band: frequency band to keep, tuple: (f_low, f_high)
         """
 
-        if (band == None):
-            band[0] = 0.
-            band[1] = self.fs/2
-
-        elif (band[1] > self.fs/2):
-            warn('Upper band limit truncated to fs/2')
-            band[1] = self.fs/2
+        b0, b1 = MRPy.check_band(self.fs, band)
 
         X  = np.empty((self.NX, self.N))
         f  = self.f_axis(); f[0] = f[1]     # avoid division by zero
@@ -528,7 +522,7 @@ class MRPy(np.ndarray):
             
             Xw[0]  = 0.                     # disregard integration constant
             
-            Xw[(f <= band[0]) | (f > band[1])] = 0.
+            Xw[(f <= b0) | (f > b1)] = 0.
             
             X[kX,:] = np.real(np.fft.ifft(
                       np.hstack((Xw, np.conj(Xw[-2:0:-1])))))
@@ -544,13 +538,7 @@ class MRPy(np.ndarray):
         Parameters:  band: frequency band to keep, tuple: (f_low, f_high)
         """
 
-        if (band == None):
-            band[0] = 0.
-            band[1] = self.fs/2
-
-        elif (band[1] > self.fs/2):
-            warn('Upper band limit truncated to fs/2')
-            band[1] = self.fs/2
+        b0, b1 = MRPy.check_band(self.fs, band)
 
         X  = np.empty((self.NX, self.N))
         f  = self.f_axis(); f[0] = f[1]     # avoid division by zero
@@ -560,7 +548,7 @@ class MRPy(np.ndarray):
             Xw = np.fft.fft(row)[0:self.M]
             Xw = Xw * (2j*np.pi*f)          # multiplication means derivation
             
-            Xw[(f <= band[0]) | (f > band[1])] = 0.
+            Xw[(f <= b0) | (f > b1)] = 0.
             
             X[kX,:] = np.real(np.fft.ifft(
                       np.hstack((Xw, np.conj(Xw[-2:0:-1])))))
@@ -865,37 +853,55 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def white_noise(NX=1, N=1024, fs=None, Td=None):
+    def white_noise(NX=1, N=1024, fs=None, Td=None, band=None):
         """
-        Add up all series in MRPy weighted by 'weight'.
+        Simulates a band-limited Gaussian white noise'.
         
-        Parameters: NX: number of processes in the MRPy object.
-                    N:  length of each process.
-                    fs: sampling frequency (in Hz), or alternatively
-                    Td: processes duration (second)
+        Parameters: NX:   number of processes in the MRPy object.
+                    N:    length of each process.
+                    fs:   sampling frequency (in Hz), or alternatively
+                    Td:   processes duration (second)
+                    band: band with nonzero power (in Hz)
         """
 
         fs, Td  = MRPy.check_fs(N, fs, Td)
+        b0, b1  = MRPy.check_band(fs, band)
+        
         M       = N//2 + 1
-        Sx      = np.ones((NX, M))*Td/M
+        Sx      = np.ones((NX, M))
+
+        k0 = np.int(2*M*b0/fs)
+        k1 = np.int(2*M*b1/fs)
+            
+        Sx[:,:k0] = 0.
+        Sx[:,k1:] = 0.
 
         return MRPy.from_periodogram(Sx, fs)
 
 #-----------------------------------------------------------------------------
 
-    def pink_noise(NX=1, N=1024, fs=None, Td=None):
+    def pink_noise(NX=1, N=1024, fs=None, band=None):
         """
         Add up all series in MRPy weighted by 'weight'.
         
-        Parameters: NX: number of processes in the MRPy object.
-                    N:  length of each process.
-                    fs: sampling frequency (in Hz), or alternatively
-                    Td: processes duration (second)
+        Parameters: NX:    number of processes in the MRPy object.
+                    N:     length of each process.
+                    fs:    sampling frequency (in Hz), or alternatively
+                    Td:    processes duration (second)
+                    band: band with nonzero power (in Hz)
         """
 
         fs, Td  = MRPy.check_fs(N, fs, Td)
+        b0, b1  = MRPy.check_band(fs, band)
+        
         M       = N//2 + 1
-        Sx      = np.ones((NX, M))*Td/M
+        Sx      = np.ones((NX, M))
+
+        k0 = np.int(2*M*b0/fs)
+        k1 = np.int(2*M*b1/fs)
+            
+        Sx[:,:k0] = 0.
+        Sx[:,k1:] = 0.
 
         return MRPy.from_periodogram(Sx, fs)
 
@@ -1330,7 +1336,33 @@ class MRPy(np.ndarray):
             sys.exit('Either fs or Td must be specified!')
         
         return fs, N/fs
+
+
+#-----------------------------------------------------------------------------
+
+    def check_band(fs, band):
+        """
+        Verifies if provided frequency band is consistent.
+        """
         
+        if (band == None):
+            b0 = 0.
+            b1 = fs/2
+        
+        else:
+            b0 = band[0]
+            b1 = band[1]
+
+        if (b0 < 0):
+            warn('Lower band limit truncated to 0!')
+            b0 = 0
+
+        if (b1 > fs/2):
+            warn('Upper band limit truncated to fs/2!')
+            b1 = fs/2
+        
+        return b0, b1
+    
 #-----------------------------------------------------------------------------
 
     def Cx2Sx(Cx, Tmax):
