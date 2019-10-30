@@ -60,7 +60,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ## Part II: Instrumentation
 
-###  8. (23/10) [Analog signals processing](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/8_AnalogSignals.ipynb?flush_cache=true)
+###  8. (23/10) [Analog signals processing](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/8_AnalogSignals.ipynb?flush_cache=true)  
 8.1. Autocovariance function and stationarity   
 8.2. Fourier series and Fourier transform   
 8.3. Power spectral density and periodograms   
@@ -70,7 +70,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 8.7. White noise and pink noise   
 8.8. Cross correlation and coherence functions   
 
-### 9. (30/10) Review on electrical circuits  
+### 9. (30/10) [Review on electrical circuits](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/9_VoltageDividers.ipynb?flush_cache=true)  
 9.1. Voltage dividers and impedance   
 9.2. Regulated voltage and current sources   
 9.3. Practical issues on building power sources
