@@ -16,7 +16,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ## Part I: Dimensional and statistical analysis
 
-###  2. (25/09) [Dimensional analysis and similarity](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/2_Dimensional_analysis.ipynb?flush_cache=true)
+###  2. (25/09) [Dimensional analysis and similarity](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/02_Dimensional_analysis.ipynb?flush_cache=true)
 
 2.1. Quantities, units, dimensions   
 2.2. Dataframe for scales computation   
@@ -25,13 +25,13 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 2.5. Change of units is like change of scale   
 2.6. Famous Pi-Numbers   
 
-###  3. (30/09) [Design of reduced scale models](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/3_Reduced_scale.ipynb?flush_cache=true)
+###  3. (30/09) [Design of reduced scale models](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/03_Reduced_scale.ipynb?flush_cache=true)
 3.1. Controlled and derived scales   
 3.2. Example: elastic beam under self weight   
 3.3. Example: cable catenary   
 3.4. Example: aeroelastic model of a slender tower   
 
-###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/4_Probabilities.ipynb?flush_cache=true)
+###  4. (02/10) [Statistics and probabilities](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/04_Probabilities.ipynb?flush_cache=true)
 4.1. Random variables and probability distributions   
 4.2. Statistical moments and estimators   
 4.3. The uniform distribution   
@@ -40,7 +40,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 4.6. The Gaussian multivariate distribution   
 4.7. Simulation of correlated normal RV's   
 
-###  5. (07/10) [Functions of RV's and error propagation](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/5_Error_propagation.ipynb?flush_cache=true)
+###  5. (07/10) [Functions of RV's and error propagation](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/05_Error_propagation.ipynb?flush_cache=true)
 5.1. Types of error in mathematical models   
 5.2. Monotonic functions of a single RV   
 5.3. Linear models of correlated RV vectors   
@@ -48,7 +48,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 5.5. Model linearization at mean value   
 5.6. Arbitrary models and Monte Carlo analysis   
 
-###  6. (09/10) [Distributions of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/6_Extreme_values.ipynb?flush_cache=true)   
+###  6. (09/10) [Distributions of extreme values](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/06_Extreme_values.ipynb?flush_cache=true)   
 6.1. Statistics of extreme values   
 6.2. Assimptotic distributions   
 6.3. Application: the S<sub>3</sub> factor in NBR6123   
@@ -60,7 +60,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ## Part II: Instrumentation
 
-###  8. (23/10) [Analog signals processing](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/8_AnalogSignals.ipynb?flush_cache=true)  
+###  8. (23/10) [Analog signals processing](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/08_AnalogSignals.ipynb?flush_cache=true)  
 8.1. Autocovariance function and stationarity   
 8.2. Fourier series and Fourier transform   
 8.3. Power spectral density and periodograms   
@@ -70,15 +70,19 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 8.7. White noise and pink noise   
 8.8. Cross correlation and coherence functions   
 
-### 9. (30/10) [Review on electrical circuits](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/9_VoltageDividers.ipynb?flush_cache=true)  
+### 9. (30/10) [Review on electrical circuits](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/09_VoltageDividers.ipynb?flush_cache=true)  
 9.1. Voltage dividers and impedance   
-9.2. Regulated voltage and current sources   
-9.3. Practical issues on building power sources
+9.2. Power sources and batteries   
+9.3. Passive circuit components   
+9.4. How to light up a LED   
+9.5. Low and high pass RC filters   
+9.6. Regulated voltage and current sources   
+9.7. Microprocessed power sources   
 
-### 10. (04/11) Signal conditioning 
-10.1. Passive and active electronic filtering   
-10.2. Voltage and charge amplifiers   
-10.3. Instrumentation amplifiers
+### 10. (04/11) [Signal conditioning](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/10_SignalConditioning.ipynb?flush_cache=true)
+10.1. Operational amplifiers    
+10.2. Instrumentation amplifiers   
+10.3. Active electronic filtering    
 
 ### 11. (06/11) Strain gages and Wheatstone bridges
 11.1. Strain gages   
