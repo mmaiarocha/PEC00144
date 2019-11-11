@@ -84,26 +84,25 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 10.2. Instrumentation amplifiers   
 10.3. Active electronic filtering    
 
-### 11. (06/11) Strain gages and Wheatstone bridges
-11.1. Strain gages   
-11.2. Wheatstone bridges  
-11.3. Designing a load cell   
+### 11. (10/11) [Cost effective devices](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/11_Arduino.ipynb?flush_cache=true)
+11.1. Arduino   
+11.2. Raspberry Pi   
+11.3. UART, I2C and SPI communication   
 
-### 12. (11/11) Other transducers
-12.1. Acelerometers and geophones   
-12.2. LVDT's and Hall sensors   
-12.3. Pressure sensors   
+### 12. (11/11) Strain gages and Wheatstone bridges
+12.1. Strain gages   
+12.2. Wheatstone bridges  
+12.3. Designing a load cell   
 
-### 13. (13/11) Data acquisition 
-13.1. Voltmeters and oscilloscopes   
-13.2. Analog to digital conversion   
-13.3. Configuring a data acquisition  
+### 13. (13/11) Other transducers
+13.1. Acelerometers and geophones   
+13.2. LVDT's and Hall sensors   
+13.3. Pressure sensors   
 
-### 14. (18/11) Cost effective devices   
-14.1. Arduino   
-14.2. Raspberry Pi   
-14.3. Serial, I2C and SPI communication   
-14.4. Available sensors
+### 14. (18/11) Data acquisition 
+14.1. Voltmeters and oscilloscopes   
+14.2. Analog to digital conversion   
+14.3. Configuring a data acquisition  
 
 ### 15. (20/11) Second test (P2)   
 
@@ -111,7 +110,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ## Part III: Case studies and applications
 
-### 16. (25/11) System identification
+### 16. (25/11) System identification (aula com Matheus Carini)
 
 ### 17. (27/11) Wind tunnel models and instrumentation
 

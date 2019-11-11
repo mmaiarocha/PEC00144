@@ -7,29 +7,31 @@ void setup(){
      digitalWrite(led, LOW);
       
      randomSeed(0);
-     delay(1000);
+     delay(100);
 }
 
 void loop(){
 
+     long t;
      long data[3];
-     char line[27];
-     int  gotIt;   
+     char line[40];
+     byte gotIt;   
 
      if (Serial.available() > 0){
-         digitalWrite(led, HIGH);
-         
          gotIt   = Serial.read();
+         digitalWrite(led, HIGH);
+
+         t       = millis();
          data[0] = random(99999999);
          data[1] = random(99999999);
          data[2] = random(99999999);
      
-         sprintf(line,    "%8ld %8ld %8ld", 
-                 data[0], data[1], data[2]);
+         sprintf(line,   "%9ld %9ld %9ld %9ld", 
+                 t, data[0], data[1], data[2]);
                         
          Serial.println(line);
 
-         delay(100);
+         delay(50);
          digitalWrite(led, LOW); 
          }
 }

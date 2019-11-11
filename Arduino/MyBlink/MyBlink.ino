@@ -1,4 +1,4 @@
-int myLED = 13;
+int myLED = 9;   // PWM 490Hz pin!!!
 
 void setup() {
   pinMode(myLED, OUTPUT);
@@ -7,7 +7,7 @@ void setup() {
 
 void loop() {
   digitalWrite(myLED, HIGH);
-  delay(500);
+  delay(50);
   digitalWrite(myLED, LOW);
-  delay(2000);
+  delay(500);
 }
