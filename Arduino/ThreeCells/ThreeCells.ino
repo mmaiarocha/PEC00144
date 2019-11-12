@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 byte CLK     =  A0;
-byte DOUT[2] = {A1, A2};
+byte DOUT[3] = {A1, A2, A3};
 
 int  powr = 7;
 int  led1 = 6;
@@ -27,22 +27,23 @@ void setup(){
 
 void loop(){
 
-     long    data[2];
-     char    dataline[18];
-     byte    b;
+     long t;
+     long data[3];
+     char line[40];
+     byte gotIt;   
 
      if (Serial.available() > 0){
-
-         digitalWrite(led1, LOW);   
+         gotIt = Serial.read();
          digitalWrite(led2, HIGH); 
+         digitalWrite(led1, LOW);   
 
-         b = char(Serial.read());
+         t = millis();
          cells.read(data);
      
-         sprintf(dataline, "%8ld %8ld", 
-                            data[0], data[1]);
+         sprintf(line,   "%9ld %9ld %9ld %9ld", 
+                 t, data[0], data[1], data[2]);
                         
-         Serial.println(dataline);
+         Serial.println(line);
 
          delay(100);
 
