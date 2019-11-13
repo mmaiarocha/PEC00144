@@ -86,13 +86,16 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ### 11. (10/11) [Cost effective devices](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/11_Arduino.ipynb?flush_cache=true)
 11.1. Arduino   
-11.2. Raspberry Pi   
-11.3. UART, I2C and SPI communication   
+11.2. Serial communication   
+11.3. I2C and SPI protocols   
+11.4. Raspberry Pi   
 
-### 12. (11/11) Strain gages and Wheatstone bridges
-12.1. Strain gages   
-12.2. Wheatstone bridges  
-12.3. Designing a load cell   
+### 12. (11/11) [Strain gages and load cells](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/12_LoadCells.ipynb?flush_cache=true)
+12.1. Strain gage principles   
+12.2. Wheatstone bridge configuration   
+12.3. Strain gage installation   
+12.4. Load cell design   
+12.5. Bridge signal conditioning   
 
 ### 13. (13/11) Other transducers
 13.1. Acelerometers and geophones   
