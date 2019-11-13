@@ -11,7 +11,7 @@ Adafruit_ADS1115 ads1115;
 
 void setup() {
   
-     Serial.begin(115200);
+     Serial.begin(230400);
      ads1115.begin();
      ads1115.setGain(GAIN_FOUR);
      delay(1000);
@@ -28,5 +28,5 @@ void loop( ){
      sprintf(line, "%9ld %6d %6d", millis(), C1, C2);
      Serial.println(line);
 
-     delayMicroseconds(1000);
+     delayMicroseconds(200);
 }
