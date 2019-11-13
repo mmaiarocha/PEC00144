@@ -27,7 +27,6 @@ void setup(){
 
 void loop(){
 
-     long t;
      long data[3];
      char line[40];
      byte gotIt;   
@@ -37,11 +36,10 @@ void loop(){
          digitalWrite(led2, HIGH); 
          digitalWrite(led1, LOW);   
 
-         t = millis();
          cells.read(data);
      
          sprintf(line,   "%9ld %9ld %9ld %9ld", 
-                 t, data[0], data[1], data[2]);
+                 millis(), data[0], data[1], data[2]);
                         
          Serial.println(line);
 
