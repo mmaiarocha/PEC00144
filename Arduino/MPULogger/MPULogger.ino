@@ -1,15 +1,8 @@
-#include <LiquidCrystal_I2C.h>
-
 //======================================================================
-//======================================================================
-//
 //   PROGRAM MPULogger
 //   Author: Prof. Marcelo M. Rocha
 //   UFRGS, nov-2019
-//
 //======================================================================
-//======================================================================
-
 #include <EEPROM.h>
 #include <Wire.h>
 #include <SPI.h>
@@ -28,7 +21,7 @@
 
 // SD card
    int      led = 13;             // file writing warning
-   int      CS  = 53;             // data pin for SD card
+   int      CS  =  4;             // data pin for SD card
    SdFat    card;                 // SD card handle
    SdFile   file;                 // file handle
 
@@ -56,7 +49,7 @@ void setup() {
 
 //   Setup LCD
      lcd.begin(16,2);
-     lcd.setBacklight(HIGH);
+//   lcd.setBacklight(HIGH);
 
 //   Setup SD card
      Serial.print("SD open: ");
