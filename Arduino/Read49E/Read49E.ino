@@ -28,9 +28,9 @@ void loop() {
 
               sprintf(line, "%9ld %6d", t, dx);
               Serial.println(line);
-              delay(500);
+              delay(10);
          }
          digitalWrite(LED_BUILTIN, LOW);
      }
-     delay(100);
+     delay(200);
 }
