@@ -1,27 +1,36 @@
-int pin_led = 13;
-int pin_ax  = A0;
-int pin_ay  = A1;
+int  dx;          // Hall sensor signal
+int  sensor = A0; // Hall sensor connected to analog input A0
+long t, t0;       // Timing variables
 
 void setup() {
-     Serial.begin(9600);
+     Serial.begin(115200);
+     while (!Serial) delay(100);
      
-     pinMode(pin_led, OUTPUT);
-     digitalWrite(pin_led, LOW);
-     delay(100);
+     pinMode(LED_BUILTIN, OUTPUT);
+     digitalWrite(LED_BUILTIN, LOW);
+   
+     delay(500);
 }
 
 void loop() {
-     char line[24];
-     
-     digitalWrite(pin_led, HIGH);
+     char line[17];
 
-     long t = millis();
-     int ax = analogRead(pin_ax);
-     int ay = analogRead(pin_ay);
+     if (Serial.available() > 0){
+         String NS = Serial.readString();
+         int    N  = NS.toInt();
 
-     sprintf(line, "%9ld %6d %6d", t, ax, ay);
-     Serial.println(line);
+         digitalWrite(LED_BUILTIN, HIGH);
+         t0 = millis();
+         
+         for (int  i = 0; i < N; i++){
+              t  = millis() - t0;
+              dx = analogRead(sensor);
 
-     digitalWrite(pin_led, LOW);
+              sprintf(line, "%9ld %6d", t, dx);
+              Serial.println(line);
+              delay(500);
+         }
+         digitalWrite(LED_BUILTIN, LOW);
+     }
      delay(100);
 }
