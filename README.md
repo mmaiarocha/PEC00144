@@ -1,5 +1,7 @@
 #  PEC00144 - Experimental Methods in Civil Engineering
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmaiarocha/PEC00144/master)
+
 _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ###  (23/09) Introduction to the discipline
