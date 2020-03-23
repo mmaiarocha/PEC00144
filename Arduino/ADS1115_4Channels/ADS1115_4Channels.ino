@@ -12,8 +12,8 @@
 
 // Acquisition variables
    uint16_t C0, C1, C2, C3;     // data from ADS115
-// char     line[38];           // formatted output
-   char     line[24];           // formatted output
+   char     line[38];           // formatted output
+// char     line[24];           // formatted output
    long     t0, t;              // time from internal clock
 
 // ADS1115 instance
@@ -22,7 +22,7 @@
 void setup(){
 
 // Setup serial (only for debugging)
-   Serial.begin(230400);
+   Serial.begin(115200);
    while (!Serial){delay(100);}
 
 // Setup ADS1115
@@ -37,22 +37,27 @@ void loop(){
      if (Serial.available() > 0){
          String NS = Serial.readString();
          int    N  = NS.toInt();
- 
+
+//       Serial.print('Reading ');
+//       Serial.print(N);
+//       Serial.println(' samples...');
+         
          for (int i = 0; i < N; i++){
 
               C0 = ads.readADC_SingleEnded(0);
               C1 = ads.readADC_SingleEnded(1);
-//            C2 = ads.readADC_SingleEnded(2);
-//            C3 = ads.readADC_SingleEnded(3);
+              C2 = ads.readADC_SingleEnded(2);
+              C3 = ads.readADC_SingleEnded(3);
      
               t  = millis() - t0;
             
-//            sprintf(line, "%9ld %6d %6d %6d %6d\n", 
-//                            t,   C0, C1, C2, C3);
-              sprintf(line, "%9ld %6d %6d\n", 
-                              t,   C0, C1);
+              sprintf(line, "%9ld %6d %6d %6d %6d\n", 
+                              t,   C0, C1, C2, C3);
+//            sprintf(line, "%9ld %6d %6d\n", 
+//                            t,   C0, C1);
                             
               Serial.print(line);
+              delayMicroseconds(1000);
               }
          }
 }
