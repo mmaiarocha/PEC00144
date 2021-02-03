@@ -1,9 +1,9 @@
 //======================================================================
-//   PROGRAM ReadMPU6050
+//   PROGRAM Read_MPU6050
 //   Author: Prof. Marcelo M. Rocha
 //======================================================================
-#include <Wire.h>
-#include <SPI.h>
+
+#include <Wire.h>                 // library for I2C communication
 
 // Auxiliary variables
    char     line[30];             // formatted output
@@ -20,7 +20,7 @@
 void setup() {
 
    Serial.begin(115200);
-   while (!Serial)delay(100);
+   while (!Serial) delay(100);
 
    Wire.begin();                 // Initialize comunication
    Wire.beginTransmission(MPU);  // Start communication with MPU6050
@@ -29,7 +29,6 @@ void setup() {
    Wire.endTransmission(true);   // end the transmission
    
    delay(1000);
-   t0 = millis();
 }  
 
 //======================================================================
@@ -40,6 +39,8 @@ void loop(){
      if (Serial.available() > 0){
          String NS = Serial.readString();
          int    N  = NS.toInt();
+         
+         t0 = millis();
          
          for (int i = 0; i < N; i++){
 
@@ -63,7 +64,7 @@ void loop(){
 
               Serial.println(line);
               Wire.endTransmission(true); 
-              delayMicroseconds(1000);
+              delayMicroseconds(500);
               }
          }
 }
