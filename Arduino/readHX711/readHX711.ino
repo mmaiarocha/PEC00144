@@ -1,9 +1,10 @@
 #include "HX711-multi.h"
 
-#define Ncell 1                      // number of cells to be read
+#define Ncell 2                      // number of cells to be read
 
-byte CLK = 4;                        // clock pin
-byte DOUT[Ncell] = {5};              // list of data pins
+byte CLK = 3;                        // clock pin
+byte DOUT[Ncell] = {5, 6};           // list of data pins
+
 long dV[Ncell];                      // data matrix (same length as DOUT)
 long dVsum[Ncell];                   // for averaging
 
@@ -31,14 +32,12 @@ void loop(){
          for (int i = 0; i < N; i++){
           
               dVsum[0] = 0;
-
-              for (int j = 0; j < 64; j++){
+              for (int j = 0; j < 8; j++){
                    cells.read(dV);
                    dVsum[0] += dV[0];
                    delay(100);
               }
-
-              dV[0] = dVsum[0]/64;
+              dV[0] = dVsum[0]/8;
               t  = millis() - t0;
 
               sprintf(line,"%9ld %6d", t, dV[0]);
@@ -47,6 +46,5 @@ void loop(){
          }
      }
 }
-
 //======================================================================
 //======================================================================
