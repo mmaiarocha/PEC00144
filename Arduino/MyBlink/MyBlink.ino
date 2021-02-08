@@ -1,4 +1,4 @@
-int myLED = 9;   // PWM 490Hz pin!!!
+int myLED = 13;
 
 void setup() {
   pinMode(myLED, OUTPUT);
