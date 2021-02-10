@@ -7,10 +7,6 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <SdFat.h>
-#include <LiquidCrystal_I2C.h>
-
-// Inicializa o display no endereco 0x3F
-   LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
 // Variables for file name definition through EPROM
    int      Ecount = 0;           // EPROM counter for file name
@@ -26,7 +22,7 @@
    SdFile   file;                 // file handle
 
 // MPU6050
-   int      MPU = 0x69;           // MPU address (AD0 HIGH)
+   int      MPU = 0x68;           // MPU address (AD0 HIGH)
    uint16_t Ndt = 16384;          // length of acquisition file
    int16_t  AcX, AcY, AcZ, tmp;   // accelerometer output
    int16_t  GyX, GyY, GyZ;        // gyroscope output
@@ -47,28 +43,17 @@ void setup() {
      EEPROM.write(Eaddrs, (byte)(Ecount+1));
      fcount = 0;
 
-//   Setup LCD
-     lcd.begin();
-     lcd.clear();
-     lcd.setBacklight(HIGH);
-
 //   Setup SD card
      Serial.print("SD open: ");
-     lcd.setCursor(0,0);
-     lcd.print("Sd open: ");
      delay(1000);
 
      pinMode(CS, OUTPUT);
      if (!card.begin(CS)){
           Serial.println("fail!  ");
-          lcd.setCursor(9,0);
-          lcd.print("fail!  ");
           while(1);
      }
      else {
           Serial.println("ok!    ");
-          lcd.setCursor(9,0);
-          lcd.print("ok!    ");
           delay(1000);
      }
 
@@ -83,18 +68,11 @@ void loop() {
      fcount++;
      sprintf(filename, "E%03dF%04d.txt", Ecount, fcount);
      
-     Serial.print("File open... ");
-     lcd.setCursor(0,0);
-     lcd.print("File open... ");
-     
+     Serial.print("File open... ");     
      Serial.print(filename);
-     lcd.setCursor(0,1);
-     lcd.print(filename);
 
      if (!file.open(filename, O_CREAT|O_WRITE|O_EXCL)){
           Serial.println(" ... fail! ");
-          lcd.setCursor(0,1);
-          lcd.print("File open fail! ");
           while(1);
          }
 
@@ -130,8 +108,6 @@ void loop() {
      Serial.print(" ]... file closed after ");
      Serial.print(millis() - t0);
      Serial.println(" milliseconds.");
-     lcd.setCursor(0,1);
-     lcd.print("Acquisition ok! ");
 
      delay(5000);}
 
