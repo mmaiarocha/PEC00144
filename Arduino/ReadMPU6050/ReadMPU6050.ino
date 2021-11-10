@@ -29,6 +29,7 @@ void setup() {
    Wire.endTransmission(true);   // end the transmission
    
    delay(1000);
+   t0 = millis();
 }  
 
 //======================================================================
@@ -36,7 +37,7 @@ void setup() {
 
 void loop(){
 
-     if (Serial.available() > 0){
+     if (Serial.available()){
          String NS = Serial.readString();
          int    N  = NS.toInt();
          
@@ -52,19 +53,19 @@ void loop(){
               AcX  = Wire.read()<<8 | Wire.read();
               AcY  = Wire.read()<<8 | Wire.read();
               AcZ  = Wire.read()<<8 | Wire.read();
-//            tmp  = Wire.read()<<8 | Wire.read();
-//            GyX  = Wire.read()<<8 | Wire.read();
-//            GyY  = Wire.read()<<8 | Wire.read();
-//            GyZ  = Wire.read()<<8 | Wire.read();
+              tmp  = Wire.read()<<8 | Wire.read();
+              GyX  = Wire.read()<<8 | Wire.read();
+              GyY  = Wire.read()<<8 | Wire.read();
+              GyZ  = Wire.read()<<8 | Wire.read();
 
               t  = millis() - t0;
 
               sprintf(line,"%9ld %6d %6d %6d", 
-                             t,   AcX,AcY,AcZ);
+                             t,  AcX,AcY,AcZ);
 
               Serial.println(line);
               Wire.endTransmission(true); 
-              delayMicroseconds(500);
+//            delayMicroseconds(500);
               }
          }
 }

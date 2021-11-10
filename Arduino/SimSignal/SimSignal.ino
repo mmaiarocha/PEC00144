@@ -16,7 +16,7 @@ void loop(){
 
      long t;
      long data[3];
-     char line[41];
+     char line[40];
      byte gotIt;   
 
      if (Serial.available()){
@@ -31,10 +31,10 @@ void loop(){
               data[1] = random(99999999);
               data[2] = random(99999999);
        
-              sprintf(line, "%9ld %9ld %9ld %9ld\n", 
+              sprintf(line, "%9ld %9ld %9ld %9ld", 
                        t, data[0], data[1], data[2]);
                           
-              Serial.print(line);
+              Serial.println(line);
               delayMicroseconds(1000);
               }
               
