@@ -4,7 +4,7 @@
 
 _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
-###  (23/09) Introduction to the discipline
+###  Introduction to the discipline
 
 * [GitHub tutorial](https://guides.github.com/activities/hello-world/)
 * [Markdown tutorial](https://www.markdowntutorial.com/)
@@ -56,9 +56,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 6.3. Application: the S<sub>3</sub> factor in NBR6123   
 6.4. Characteristic wind velocity V<sub>k</sub> from data   
 
-###  7. First test (P1) 
-
----
+###  7. Revision  
 
 ## Part II: Instrumentation
 
@@ -87,10 +85,10 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 10.3. Active electronic filtering    
 
 ### 11. [Cost effective devices](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/11_Arduino.ipynb?flush_cache=true)
-11.1. Arduino   
+11.1. Arduino microprocessor
 11.2. Serial communication   
 11.3. I2C and SPI protocols   
-11.4. Raspberry Pi   
+11.4. Other microprocessor options   
 
 ### 12. [Strain gages and load cells](https://nbviewer.jupyter.org/github/mmaiarocha/PEC00144/blob/master/12_LoadCells.ipynb?flush_cache=true)
 12.1. Strain gage principles   
@@ -109,7 +107,7 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 14.2. Analog to digital conversion   
 14.3. Configuring a data acquisition  
 
-### 15. Second test (P2)   
+### 15. Revision  
 
 ---
 
@@ -117,14 +115,16 @@ _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
 
 ### 16. High frequency pressure integration (HFPI)
 
-### 17. Designing a machine foundatios
+### 17. Bridge deck flutter and vortex shedding
 
-### 18. The PPGEC-Petrobras project
+### 18. Designing a machine foundatios
 
-### 19. Students presentations - part 1   
+### 19. The PPGEC-Petrobras project
 
-### 20. Students presentations - part 2 
+### 20. Students presentations - part 1   
 
-### 21. Retake tests
+### 21. Students presentations - part 2 
+
+### 22. Closure
 
 ---
