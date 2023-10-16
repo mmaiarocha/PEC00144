@@ -48,11 +48,11 @@ class MRPy(np.ndarray):
             X.N =  X.N - 1
 
         if (fs != None):                  # if fs is prescribed...
-            X.fs = np.float(fs)
+            X.fs = float(fs)
             X.Td = X.N/X.fs               # ... Td is calculated
 
         elif (Td != None):                # but if Td is prescribed...
-            X.Td = err*np.float(Td)
+            X.Td = err*float(Td)
             X.fs = X.N/X.Td               # ... fs is calculated
 
         else: sys.exit('Either fs or Td must be provided!')
@@ -398,7 +398,7 @@ class MRPy(np.ndarray):
                           'tri': triangular (default)
         """
 
-        n =  np.int(n)               # truncate to integer
+        n =  int(n)                  # truncate to integer
         n =  n - (1 - np.mod(n,2))   # n is odd or will be decreased by 1
         m = (n -  1)//2 + 1          # window center
         W =  np.ones(n)              # default rectangular window
@@ -907,13 +907,14 @@ class MRPy(np.ndarray):
         M       = N//2 + 1
         Sx      = np.ones((NX, M))
 
-        k0 = np.int(2*M*b0/fs)
-        k1 = np.int(2*M*b1/fs)
+        k0 = int(2*M*b0/fs)
+        k1 = int(2*M*b1/fs)
             
         Sx[:,:k0] = 0.
         Sx[:,k1:] = 0.
-        
-        Sx = Sx/np.trapz(Sx, dx=1./Td)
+
+        for kX in range(NX):        
+            Sx[kX,:] /= np.trapz(Sx[kX,:], dx=1./Td)
 
         return MRPy.from_periodogram(Sx, fs)
 
@@ -936,13 +937,14 @@ class MRPy(np.ndarray):
         M       = N//2 + 1
         Sx      = np.ones((NX, M))
 
-        k0 = np.int(2*M*b0/fs)
-        k1 = np.int(2*M*b1/fs)
+        k0 = int(2*M*b0/fs)
+        k1 = int(2*M*b1/fs)
             
         Sx[:,:k0] = 0.
         Sx[:,k1:] = 0.
-        
-        Sx = Sx/np.trapz(Sx, dx=1./Td)
+
+        for kX in range(NX):        
+            Sx[kX,:] /= np.trapz(Sx[kX,:], dx=1./Td)
  
         return MRPy.from_periodogram(Sx, fs)
 
