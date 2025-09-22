@@ -3,7 +3,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmaiarocha/PEC00144/master)
 
 _Prof. Marcelo Maia Rocha, PPGEC/UFRGS_
-
+ 
 ###  Introduction to the discipline
 
 * [GitHub tutorial](https://guides.github.com/activities/hello-world/)
