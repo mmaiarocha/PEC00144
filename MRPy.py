@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
 import gzip   as gz
 import pickle as pk
 import numpy  as np
@@ -25,7 +24,7 @@ class MRPy(np.ndarray):
         X  =  np.asarray(np_array).view(cls)
 
         if (X.size == 0):
-            sys.exit('Empty array not allowed for new objects!')
+            raise ValueError('Empty array not allowed for new objects!')
         
         sh =  X.shape
         
@@ -39,7 +38,7 @@ class MRPy(np.ndarray):
         X.N  =  sh[1]
         
         if (X.N < 2):
-            sys.exit('Come on!!! Start with at least 2 elements!')
+            raise ValueError('Come on!!! Start with at least 2 samples!')
 
         err =  1.0
         if (np.mod(X.N, 2) != 0):         # enforce N to be even...
@@ -47,15 +46,16 @@ class MRPy(np.ndarray):
             err = (X.N - 1)/X.N           # correction over Td
             X.N =  X.N - 1
 
-        if (fs != None):                  # if fs is prescribed...
+        if (fs is not None):     # if fs is prescribed...
             X.fs = float(fs)
             X.Td = X.N/X.fs               # ... Td is calculated
 
-        elif (Td != None):                # but if Td is prescribed...
+        elif (Td is not None):                # but if Td is prescribed...
             X.Td = err*float(Td)
             X.fs = X.N/X.Td               # ... fs is calculated
 
-        else: sys.exit('Either fs or Td must be provided!')
+        else: 
+            raise ValueError('Either fs or Td must be provided!')
 
         X.M  = X.N//2 + 1
         return X
@@ -76,7 +76,8 @@ class MRPy(np.ndarray):
 # 2. Class constructors from other sources
 #=============================================================================
 
-    def from_file(filename, form='mrpy'):
+    @classmethod
+    def from_file(cls, filename, form='mrpy'):
         """
         Load time series from file. Please contact the author for 
         including other types of datafile.
@@ -142,16 +143,17 @@ class MRPy(np.ndarray):
 
 #--------------- 
             else:
-                sys.exit('Data formatting not available!')
+                raise ValueError('Data formatting not available!')
                 return None
             
         except:
-            sys.exit('Could not read file "{0}"!'.format(filename))
+            raise IOError('Could not read file "{0}"!'.format(filename))
             return None
 
 #-----------------------------------------------------------------------------
     
-    def from_periodogram(Sx, fs):
+    @classmethod
+    def from_periodogram(cls, Sx, fs):
         """
         Simulate RPs from given spectral densities.
  
@@ -193,7 +195,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def from_autocov(Cx, Tmax):
+    @classmethod
+    def from_autocov(cls, Cx, Tmax):
         """
         Simulate RPs from given autocovariance functions.
  
@@ -212,7 +215,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def from_pseudo(Sa, Tmax, T, zeta=0.05):  # NOT READY!!!
+    @classmethod
+    def from_pseudo(cls, Sa, Tmax, T, zeta=0.05):  # NOT READY!!!
         """
         Simulate ground acceleration records from a given pseudo acceleration 
         spectra.  
@@ -295,11 +299,11 @@ class MRPy(np.ndarray):
         modal shape coordinate at a given structural node.
         """
 
-        if ~hasattr(weight, "__len__"):
+        if not hasattr(weight, "__len__"):
             weight = weight*np.ones(self.NX)
             
         elif (len(weight) != self.NX):
-            sys.exit('Weight length must equal number of processes!')
+            raise ValueError('Weight length must equal number of processes!')
 
         X   = np.zeros((1, self.N))
 
@@ -337,7 +341,7 @@ class MRPy(np.ndarray):
         """
 
         if (segm[0] >= segm[1]):
-            sys.exit('Upper limit must be larger than lower limit!')
+            raise ValueError('Upper limit must be larger than lower limit!')
 
         if (by.lower() == 'fraction'):            
             i0  = int(segm[0]*self.N)
@@ -352,7 +356,7 @@ class MRPy(np.ndarray):
             i1  = int(segm[1])
         
         else: 
-            sys.exit('Segment definition code is unknown!')
+            raise ValueError('Segment definition code is unknown!')
             return None
 
         i1  = i1 - np.mod(i1-i0, 2)      # ensure even length
@@ -398,7 +402,7 @@ class MRPy(np.ndarray):
                           'tri': triangular (default)
         """
 
-        n =  int(n)                  # truncate to integer
+        n =  int(n)               # truncate to integer
         n =  n - (1 - np.mod(n,2))   # n is odd or will be decreased by 1
         m = (n -  1)//2 + 1          # window center
         W =  np.ones(n)              # default rectangular window
@@ -411,7 +415,7 @@ class MRPy(np.ndarray):
             W[m-1: ] =  np.linspace(1.,  1/m, m)
         
         else:
-            sys.error('Averaging window type not available!')
+            raise ValueError('Averaging window type not available!')
 
         m  =  m - 1
         W  =  W/W.sum()
@@ -450,7 +454,7 @@ class MRPy(np.ndarray):
         X   =  self.double()
         f   =  X.f_axis()
         
-        b0, b1 = MRPy.check_band(self.fs, band)
+        b0, b1 = MRPy.check_band(self.f, band)
 
         for kX in range(X.NX):
             
@@ -463,7 +467,7 @@ class MRPy(np.ndarray):
                 Xw[(f >= b0) & (f < b1)] = 0. 
 
             else:
-                warn('Filter type not available!')
+                raise ValueError('Filter type not available!')
 
             X[kX,:] = np.real(np.fft.ifft(
                       np.hstack((Xw, np.conj(Xw[-2:0:-1])))))
@@ -577,16 +581,16 @@ class MRPy(np.ndarray):
                      V0:   initial velocity (default is all zero)
         """
         
-        if ~hasattr(fn, "__len__"):
+        if not hasattr(fn, "__len__"):
             fn   = fn*np.ones(self.NX)
     
-        if ~hasattr(zeta, "__len__"):
+        if not hasattr(zeta, "__len__"):
             zeta = zeta*np.ones(self.NX)
         
-        if ~hasattr(U0, "__len__"):
+        if not hasattr(U0, "__len__"):
             U0   = U0*np.ones(self.NX)
         
-        if ~hasattr(V0, "__len__"):
+        if not hasattr(V0, "__len__"):
             V0   = V0*np.ones(self.NX)
 
         dt  =  1/self.fs
@@ -628,16 +632,16 @@ class MRPy(np.ndarray):
                      V0:   initial velocity (default is all zero)
         """
         
-        if ~hasattr(fn, "__len__"):
+        if not hasattr(fn, "__len__"):
             fn   = fn*np.ones(self.NX)
     
-        if ~hasattr(zeta, "__len__"):
+        if not hasattr(zeta, "__len__"):
             zeta = zeta*np.ones(self.NX)
         
-        if ~hasattr(U0, "__len__"):
+        if not hasattr(U0, "__len__"):
             U0   = U0*np.ones(self.NX)
         
-        if ~hasattr(V0, "__len__"):
+        if not hasattr(V0, "__len__"):
             V0   = V0*np.ones(self.NX)
 
         t   =  self.t_axis()
@@ -679,10 +683,10 @@ class MRPy(np.ndarray):
                      zeta: sdof damping  (nondim)
         """
         
-        if ~hasattr(fn, "__len__"):
+        if not hasattr(fn, "__len__"):
             fn   = fn*np.ones(self.NX)
     
-        if ~hasattr(zeta, "__len__"):
+        if not hasattr(zeta, "__len__"):
             zeta = zeta*np.ones(self.NX)
 
         X   =  MRPy(np.empty((self.NX, self.N)), self.fs)
@@ -816,7 +820,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def Dirac(NX=1, N=1024, t0=0.0, fs=None, Td=None):
+    @classmethod
+    def Dirac(cls, NX=1, N=1024, t0=0.0, fs=None, Td=None):
         """
         Add up all series in MRPy weighted by 'weight'.
         
@@ -828,15 +833,16 @@ class MRPy(np.ndarray):
         """
 
         fs, Td  =  MRPy.check_fs(N, fs, Td)
-        i0      =  int(t0//fs)
+        i0      =  int(t0*fs)
         X       =  np.zeros((NX,N))
-        X[:,i0] =  1.0
+        X[:,i0] =  fs
 
         return MRPy(X, fs)
 
 #-----------------------------------------------------------------------------
 
-    def Heaviside(NX=1, N=1024, t0=0.0, fs=None, Td=None):
+    @classmethod
+    def Heaviside(cls, NX=1, N=1024, t0=0.0, fs=None, Td=None):
         """
         Add up all series in MRPy weighted by 'weight'.
         
@@ -856,7 +862,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def harmonic(NX=1, N=1024, fs=None, Td=None, X0=1.0, f0=1.0, phi=0.0):
+    @classmethod
+    def harmonic(cls, NX=1, N=1024, fs=None, Td=None, X0=1.0, f0=1.0, phi=0.0):
         """
         Creates an instance with harmonic functions with unity amplitude.
         
@@ -872,13 +879,13 @@ class MRPy(np.ndarray):
         fs, Td = MRPy.check_fs(N, fs, Td)        
         X      = np.zeros((NX,N))
         
-        if ~hasattr(X0,  "__len__"):
+        if not hasattr(X0,  "__len__"):
             X0  = X0*np.ones(NX)
         
-        if ~hasattr(f0,  "__len__"):
+        if not hasattr(f0,  "__len__"):
             f0  = f0*np.ones(NX)
     
-        if ~hasattr(phi, "__len__"):
+        if not hasattr(phi, "__len__"):
             phi = phi*np.ones(NX)
 
         t  = np.linspace(0, Td, N)
@@ -890,7 +897,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def white_noise(NX=1, N=1024, fs=None, Td=None, band=None):
+    @classmethod
+    def white_noise(cls, NX=1, N=1024, fs=None, Td=None, band=None):
         """
         Simulates a band-limited Gaussian white noise'.
         
@@ -912,15 +920,16 @@ class MRPy(np.ndarray):
             
         Sx[:,:k0] = 0.
         Sx[:,k1:] = 0.
-
-        for kX in range(NX):        
-            Sx[kX,:] /= np.trapz(Sx[kX,:], dx=1./Td)
+        
+        for kX in range(NX):
+            Sx[kX] = Sx[kX]/np.trapz(Sx[kX], dx=1./Td)
 
         return MRPy.from_periodogram(Sx, fs)
 
 #-----------------------------------------------------------------------------
 
-    def pink_noise(NX=1, N=1024, fs=None, band=None):
+    @classmethod
+    def pink_noise(cls, NX=1, N=1024, fs=None, band=None):
         """
         Add up all series in MRPy weighted by 'weight'.
         
@@ -941,10 +950,11 @@ class MRPy(np.ndarray):
         k1 = int(2*M*b1/fs)
             
         Sx[:,:k0] = 0.
-        Sx[:,k1:] = 0.
+        Sx[k0:k1] = np.linspace(1., 1./(k1-k0), k1-k0)
+        Sx[:,k1:] = 0. 
 
-        for kX in range(NX):        
-            Sx[kX,:] /= np.trapz(Sx[kX,:], dx=1./Td)
+        for kX in range(NX):
+            Sx[kX] = Sx[kX]/np.trapz(Sx[kX], dx=1./Td)
  
         return MRPy.from_periodogram(Sx, fs)
 
@@ -1309,11 +1319,11 @@ class MRPy(np.ndarray):
                                  columns = np.arange(self.NX))
 
             excel = pd.ExcelWriter(filename+'.xlsx')
-            data.to_excel(excel,'MRPy')
-            excel.save()
+            data.to_excel(excel,sheet_name='MRPy')
+            excel.close()
             
         else:
-            sys.exit('Data formatting not available!')
+            raise IOError('File output format not available!')
             
         return None
 
@@ -1321,7 +1331,8 @@ class MRPy(np.ndarray):
 # 7. Helpers
 #=============================================================================
  
-    def resampling(ti, Xi):
+    @classmethod
+    def resampling(cls, ti, Xi):
         """
         Resampling irregular time step to fixed time step. The last
         element of ti is taken as total series duration. Series length
@@ -1342,11 +1353,11 @@ class MRPy(np.ndarray):
         N  =  sh[1]
 
         if (N < 2):
-            sys.exit('Come on!!! Start with at least 2 elements!')
+            raise ValueError('Come on!!! Start with at least 2 samples!')
         
         tsh =  ti.shape
         if (len(tsh) > 1): 
-            sys.exit('Time markers must be a 1D vector!')
+            raise TypeError('Time markers must be a 1D vector!')
 
         t0 =  ti[0]
         t1 =  ti[-1]
@@ -1363,7 +1374,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def check_fs(N, fs, Td):
+    @classmethod
+    def check_fs(cls, N, fs, Td):
         """
         Verifies if either fs or Td are given, and returns both
         properties verifyed. Observe that N is not verified to be
@@ -1378,13 +1390,14 @@ class MRPy(np.ndarray):
             fs = N/Td
 
         else: 
-            sys.exit('Either fs or Td must be specified!')
+            raise ValueError('Either fs or Td must be specified!')
         
         return fs, Td
 
 #-----------------------------------------------------------------------------
 
-    def check_band(fs, band):
+    @classmethod
+    def check_band(cls, fs, band):
         """
         Verifies if provided frequency band is consistent.
         """
@@ -1409,7 +1422,8 @@ class MRPy(np.ndarray):
     
 #-----------------------------------------------------------------------------
 
-    def Cx2Sx(Cx, Tmax):
+    @classmethod
+    def Cx2Sx(cls, Cx, Tmax):
         """
         Returns the spectral density corresponding to a given
         autocovariance function.
@@ -1454,7 +1468,8 @@ class MRPy(np.ndarray):
 
 #-----------------------------------------------------------------------------
 
-    def Sx2Cx(Sx, fs):
+    @classmethod
+    def Sx2Cx(cls, Sx, fs):
         """
         Returns the autocovariance corresponding to a given
         spectral density.
