@@ -19,7 +19,7 @@
 
 void setup() {
 
-   Serial.begin(115200);
+   Serial.begin(57600);
    while (!Serial) delay(100);
 
    Wire.begin();                 // Initialize comunication
@@ -29,7 +29,6 @@ void setup() {
    Wire.endTransmission(true);   // end the transmission
    
    delay(1000);
-   t0 = millis();
 }  
 
 //======================================================================
