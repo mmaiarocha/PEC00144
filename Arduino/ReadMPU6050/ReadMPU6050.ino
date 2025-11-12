@@ -10,7 +10,7 @@
    long     t0, t;                // time from internal clock
 
 // MPU6050
-   int      MPU = 0x68;           // MPU address (AD0 HIGH)
+   int      MPU = 0x68;           // MPU address (AD0 LOW)
    int16_t  AcX, AcY, AcZ, tmp;   // accelerometer output
    int16_t  GyX, GyY, GyZ;        // gyroscope output
 
@@ -47,15 +47,15 @@ void loop(){
               Wire.beginTransmission(MPU);
               Wire.write(0x3B);
               Wire.endTransmission(false);
-              Wire.requestFrom(MPU, 6, true);  // 2 bytes for each parameters
+              Wire.requestFrom(MPU, 6, true);  // 2 bytes for each parameter
 
               AcX  = Wire.read()<<8 | Wire.read();
               AcY  = Wire.read()<<8 | Wire.read();
               AcZ  = Wire.read()<<8 | Wire.read();
-              tmp  = Wire.read()<<8 | Wire.read();
-              GyX  = Wire.read()<<8 | Wire.read();
-              GyY  = Wire.read()<<8 | Wire.read();
-              GyZ  = Wire.read()<<8 | Wire.read();
+//            tmp  = Wire.read()<<8 | Wire.read();
+//            GyX  = Wire.read()<<8 | Wire.read();
+//            GyY  = Wire.read()<<8 | Wire.read();
+//            GyZ  = Wire.read()<<8 | Wire.read();
 
               t  = millis() - t0;
 
@@ -64,7 +64,7 @@ void loop(){
 
               Serial.println(line);
               Wire.endTransmission(true); 
-//            delayMicroseconds(500);
+              delayMicroseconds(1000);
               }
          }
 }
